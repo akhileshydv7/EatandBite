@@ -12,7 +12,7 @@ const ItemLists = ({ lists }) => {
                             <p className="text-sm mb-8">{item?.card?.info?.description}</p>
                         </div>
                         <div className="w-3/12 p-4 mt-4">
-                            <img src={CLD_URL + item?.card?.info?.imageId} className="w-full" />
+                            <img src={CLD_URL + item?.card?.info?.imageId} className="w-full" alt="ok" />
                         </div>
                     </div>
                 ))}

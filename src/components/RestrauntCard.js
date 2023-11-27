@@ -11,7 +11,7 @@ const RestruantCard = (props) => {
     left: 0;
     right: 0; */}
             <div className="p-4">
-                <img className="rounded-lg " src={CLD_URL + cloudinaryImageId} />
+                <img className="rounded-lg " src={CLD_URL + cloudinaryImageId} alt="ok" />
             </div>
 
             <h2 className="font-bold text-lg px-4 whitespace-nowrap overflow-hidden text-ellipsis">{name}</h2>

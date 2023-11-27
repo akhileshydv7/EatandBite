@@ -4,21 +4,21 @@ const Foooter = () => {
             <div className="flex justify-center">
                 <a className="pr-6"
                     href="https://github.com/akhileshydv7">
-                    <img className=" w-7 h-7"
+                    <img className="w-7 h-7"
                         src="https://ghost32-bifrost.netlify.app/assets/icons/github.png"
-                    />
+                        alt="ok" />
                 </a>
                 <a className="pr-6"
                     href="mailto:akhileshyadav26620@gmail.com">
                     <img className="w-7 h-7"
                         src="https://www.kalashsharma.com/assets/gmail.png"
-                    />
+                        alt="ok" />
                 </a>
                 <a className="pr-6"
                     href="https://www.linkedin.com/in/akhileshyadav26/">
                     <img className=" w-7 h-7"
                         src="https://ghost32-bifrost.netlify.app/assets/icons/linkedin.png"
-                    />
+                        alt="ok" />
                 </a>
             </div>
             <div
