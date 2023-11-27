@@ -1,22 +1,22 @@
-import { useContext, useState } from "react";
+// import { useContext, useState } from "react";
 // import { LOGO_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 // import { LinkContainer } from "react-router-bootstrap";
-import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/UserContext";
+// import useOnlineStatus from "../utils/useOnlineStatus";
+// import UserContext from "../utils/UserContext";
 import logo from './logo.png';
 
 const Header = () => {
-    const [btnName, setbtnName] = useState("Login");
-    const liStyle = {
-        textDecoration: "none",
-        cursor: "pointer",
-        color: "black"
-    };
+    // const [btnName, setbtnName] = useState("Login");
+    // const liStyle = {
+    //     textDecoration: "none",
+    //     cursor: "pointer",
+    //     color: "black"
+    // };
     // console.log("okok")
-    const { loggedInUser } = useContext(UserContext);
+    // const { loggedInUser } = useContext(UserContext);
 
-    const onlineStatus = useOnlineStatus();
+    // const onlineStatus = useOnlineStatus();
     return (
         <div className="flex justify-between shadow-xl h-20 sticky top-0 bg-white ">
             <Link className="cursor-pointer w-20 " to="/" ><img src={logo} alt="uuu" /></Link>

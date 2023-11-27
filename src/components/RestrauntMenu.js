@@ -15,8 +15,7 @@ const RestrauntMenu = () => {
 
     useEffect(() => {
         fetchMenu();
-
-    }, []);
+    });
 
 
     const fetchMenu = async () => {
@@ -36,7 +35,7 @@ const RestrauntMenu = () => {
     if (resInfo === null)
         return <Shimmer />
 
-    const { name, cuisines, avgRating, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
+    const { name, cuisines, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
 
     console.log(categories);
     // console.log(itemCards);

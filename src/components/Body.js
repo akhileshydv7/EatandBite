@@ -1,10 +1,10 @@
 import RestruantCard, { withPromptedLabel } from "./RestrauntCard";
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import React from "react";
 // import useOnlineStatus from "../utils/useOnlineStatus";
-import UserContext from "../utils/UserContext";
+// import UserContext from "../utils/UserContext";
 // import { Button } from '@mui/material';
 
 const Body = () => {
@@ -16,7 +16,7 @@ const Body = () => {
 
     useEffect(() => {
         fetchData();
-        console.log(listOfRestraunts);
+        // console.log(listOfRestraunts);
     }, []);
 
     const fetchData = async () => {
@@ -65,7 +65,7 @@ const Body = () => {
                 <button className={!ratedFilter ? "border border-black rounded-2xl w-[10%] bg-gray-300" : "border rounded-2xl w-[10%] hover:bg-blue-50"}
                     onClick={() => {
                         setRatedFilter(!ratedFilter);
-                        if (ratedFilter == true) {
+                        if (ratedFilter === true) {
                             // console.log("dhda");
 
                             setFilteredRestraunts(filteredRestraunts.filter(
