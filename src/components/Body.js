@@ -20,19 +20,14 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        // const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=25.4532642&lng=81.8213596&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+        // const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&page_type=DESKTOP_WEB_LISTING");
         const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&page_type=DESKTOP_WEB_LISTING");
-
-        //     if(data === null){ 
-        //         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9801436&lng=77.5685724&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-        // }
         const json = await data.json();
-        // console.log(json);
+        console.log(json);
         // optional chaining
-        setListOfRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestraunts(json?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestraunts(json?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
-    // console.log(listOfRestraunts);
 
     const RestrauntCardHeading = withPromptedLabel(RestruantCard);
 
