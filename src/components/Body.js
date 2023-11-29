@@ -23,7 +23,7 @@ const Body = () => {
         // const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&page_type=DESKTOP_WEB_LISTING");
         const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        console.log(json);
+        // console.log(json);
         // optional chaining
         setListOfRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
