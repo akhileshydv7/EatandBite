@@ -18,6 +18,7 @@ const FAQ = () => {
                 {
                     FAQ_LIST?.map((data, index) => (
                         <li>
+                            <h1>{index}</h1>
                             <h2>{data.Question}</h2>
                             <p>{data.Answer}</p>
                         </li>
