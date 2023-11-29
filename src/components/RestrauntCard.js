@@ -2,14 +2,10 @@ import { CLD_URL } from "../utils/constants";
 
 const RestruantCard = (props) => {
     const { resData } = props;
-    console.log(resData);
+    // console.log(resData);
     const { name, costForTwo, avgRating, cuisines, cloudinaryImageId } = resData?.info;
     return (
         <div className=" rounded-md ">
-            {/* osition: fixed;
-    top: 0;
-    left: 0;
-    right: 0; */}
             <div className="p-4">
                 <img className="rounded-lg " src={CLD_URL + cloudinaryImageId} alt="ok" />
             </div>

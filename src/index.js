@@ -1,29 +1,31 @@
 import React from "react";
-import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Error from "./components/Error";
-import Contact from "./components/Contact";
 import About from "./components/About";
 import RestrauntMenu from "./components/RestrauntMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import UserContext from "./utils/UserContext";
 import Foooter from "./components/Foooter";
 import reportWebVitals from './reportWebVitals';
 import "./index.css";
+import { Provider } from "react-redux";
+import appStore from "./utils/Redux/appStore";
+import Cart from "./components/Cart";
+import FAQ from "./components/FAQ";
+
+
 
 
 const EatAndBite = () => {
-  const [userName, setUserName] = useState();
   return (
-    <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+    <Provider store={appStore} >
       <div>
         <Header />
         <Outlet />
         <Foooter />
       </div>
-    </UserContext.Provider>
+    </Provider>
   )
 }
 
@@ -37,8 +39,12 @@ const appRouter = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/contact",
-        element: <Contact />,
+        path: "/faq",
+        element: <FAQ />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
       {
         path: "/about",

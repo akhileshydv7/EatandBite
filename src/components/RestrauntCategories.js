@@ -1,5 +1,5 @@
 // import { useState } from "react";
-import ItemLists from "./ItemList";
+import ItemList from "./ItemList";
 
 const RestrauntCategories = ({ data, showItems, setShowIndex }) => {
     // console.log(data);
@@ -18,7 +18,7 @@ const RestrauntCategories = ({ data, showItems, setShowIndex }) => {
                     <span className="text-lg">{"⬇️"}</span>
                 </div>
                 <div>
-                    {showItems && <ItemLists lists={data.itemCards} />}
+                    {showItems && <ItemList items={data.itemCards} />}
                 </div>
             </div>
         </div>
