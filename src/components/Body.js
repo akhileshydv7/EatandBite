@@ -25,8 +25,8 @@ const Body = () => {
         const json = await data.json();
         console.log(json);
         // optional chaining
-        setListOfRestraunts(json?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestraunts(json?.data?.cards?.[3]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setFilteredRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
     const RestrauntCardHeading = withPromptedLabel(RestruantCard);
