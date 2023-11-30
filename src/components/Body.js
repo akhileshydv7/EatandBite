@@ -1,8 +1,9 @@
 import RestruantCard, { withPromptedLabel } from "./RestrauntCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import React from "react";
+import { AppContext } from "..";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 // import UserContext from "../utils/UserContext";
 // import { Button } from '@mui/material';
@@ -11,23 +12,24 @@ const Body = () => {
     const [listOfRestraunts, setListOfRestraunts] = useState([]);
     const [filteredRestraunts, setFilteredRestraunts] = useState([]);
     const [searchText, setSearchText] = useState("");
+
+    const { longitude, latitude } = useContext(AppContext)
     // const { loggedInUser, setUserName } = useContext(UserContext);
     const [ratedFilter, setRatedFilter] = useState(true);
 
     useEffect(() => {
+        const fetchData = async () => {
+            // const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&page_type=DESKTOP_WEB_LISTING");
+            const data = await fetch(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`);
+            const json = await data.json();
+            console.log(json);
+            // optional chaining
+            setListOfRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setFilteredRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        }
         fetchData();
-        // console.log(listOfRestraunts);
-    }, []);
+    }, [longitude, latitude])
 
-    const fetchData = async () => {
-        // const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&page_type=DESKTOP_WEB_LISTING");
-        const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&page_type=DESKTOP_WEB_LISTING");
-        const json = await data.json();
-        // console.log(json);
-        // optional chaining
-        setListOfRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setFilteredRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }
 
     const RestrauntCardHeading = withPromptedLabel(RestruantCard);
 
@@ -79,7 +81,7 @@ const Body = () => {
                 </div> */}
                 {/* <Button>Top Rated Restraunts</Button> */}
             </div>
-            <div className="flex flex-wrap gap-8 ml-10 mb-3">
+            <div className="flex flex-wrap gap-8 ml-10 mb-3 ">
                 {filteredRestraunts?.map((res) =>
                 // (<LinkContainer key={res.data.id} to={/restraunt/ + res.data.id}><RestruantCard  resData={res} /></LinkContainer>)
                 // (<RestruantCard  resData={res} />)

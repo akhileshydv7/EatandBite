@@ -1,4 +1,4 @@
-import React from "react";
+import React, { createContext, useContext, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -15,16 +15,19 @@ import Cart from "./components/Cart";
 import FAQ from "./components/FAQ";
 
 
-
+export const AppContext = createContext()
 
 const EatAndBite = () => {
+  const [latitude, setLatitude] = useState(26.8310467);
+  const [longitude, setLongitude] = useState(80.9243877);
+
   return (
     <Provider store={appStore} >
-      <div>
+      <AppContext.Provider value={{ latitude, setLatitude, longitude, setLongitude }} >
         <Header />
         <Outlet />
         <Foooter />
-      </div>
+      </AppContext.Provider>
     </Provider>
   )
 }
