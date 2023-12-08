@@ -5,7 +5,7 @@ const RestruantCard = (props) => {
     // console.log(resData);
     const { name, costForTwo, avgRating, cuisines, cloudinaryImageId } = resData?.info;
     return (
-        <div className=" rounded-md ">
+        <div className=" transition-all duration-150 hover:scale-95 rounded-md ">
             <div className="p-4">
                 <img className="rounded-lg " src={CLD_URL + cloudinaryImageId} alt="ok" />
             </div>
