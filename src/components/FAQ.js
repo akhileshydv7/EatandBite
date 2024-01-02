@@ -18,9 +18,9 @@ const FAQ = () => {
                 {
                     FAQ_LIST?.map((data, index) => (
                         <li>
-                            <h1>{index}</h1>
-                            <h2>{data.Question}</h2>
-                            <p>{data.Answer}</p>
+                            {/* <h1>{index}</h1> */}
+                            <h2>{(index + 1) + ": " + data.Question}</h2>
+                            <p className="px-4 pb-6 pt-2">{data.Answer}</p>
                         </li>
                     ))
                 }
