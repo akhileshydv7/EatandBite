@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 // import UserContext from "../utils/UserContext";
@@ -8,7 +8,7 @@ import { AppContext } from "..";
 
 
 const Header = () => {
-    const [btnName, setbtnName] = useState("Login");
+    // const [btnName, setbtnName] = useState("Login");
     // const { loggedInUser } = useContext(UserContext);
     // const onlineStatus = useOnlineStatus();
     const cartItems = useSelector((store) => store.cart.items);
@@ -52,9 +52,9 @@ const Header = () => {
                             </span>)}
                     </Link>
                 </li>
-                <button className=" m-2 py-4 hover:text-orange-600 hover:transition-all hover:duration-300 hover:ease-in-out " onClick={() => {
+                {/* <button className=" m-2 py-4 hover:text-orange-600 hover:transition-all hover:duration-300 hover:ease-in-out " onClick={() => {
                     btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
-                }} >{btnName}</button>
+                }} >{btnName}</button> */}
             </ul>
         </div>
     )

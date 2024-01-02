@@ -2,7 +2,7 @@ import { CLD_URL } from "../utils/constants";
 
 const RestruantCard = (props) => {
     const { resData } = props;
-    // console.log(resData);
+    console.log(resData);
     const { name, costForTwo, avgRating, cuisines, cloudinaryImageId } = resData?.info;
     return (
         <div className=" transition-all duration-150 hover:scale-95 rounded-md ">
@@ -14,7 +14,7 @@ const RestruantCard = (props) => {
             <h3 className="whitespace-nowrap px-4 overflow-hidden text-ellipsis">{cuisines.join(", ")}</h3>
             <h3 className="px-4" >★{avgRating}</h3>
             <h3 className="px-4" >{costForTwo} </h3>
-            <h3 className="px-4 pb-3" >{resData?.info?.sla?.deliveryTime} minutes.</h3>
+            {/* <h3 className="px-4 pb-3" >{resData?.info?.deliveryTime} minutes.</h3> */}
         </div>
     )
 }

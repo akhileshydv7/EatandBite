@@ -16,7 +16,7 @@ export const FAQ_LIST = [
     {
         Question: 'What areas do you serve?',
         Answer:
-            "We currently operate in [List of Cities or Regions]. However, we're continuously expanding, so keep an eye on our app or website for updates on new locations."
+            "We currently operate in [Lucknow, Delhi, Mumbai, Hyderabad, Varanasi]. However, we're continuously expanding, so keep an eye on our app or website for updates on new locations."
     },
     {
         Question: 'Is there a minimum order amount?',

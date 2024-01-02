@@ -32,7 +32,7 @@ const RestrauntMenu = () => {
 
 
     // console.log(categories);
-    // console.log(resInfo);
+    console.log(resInfo);
     if (resInfo === null)
         return <Shimmer />
 
