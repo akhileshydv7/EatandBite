@@ -12,7 +12,7 @@ const Cart = () => {
 
     return (
         <div className="text-center m-8 min-h-screen">
-            <h1 className="font-bold text-4xl">Cart</h1>
+            <h1 className="font-bold text-4xl mb-2">Cart</h1>
             <div className="w-7/12 m-auto">
                 <ItemList items={cartItems} />
             </div>
