@@ -18,12 +18,14 @@ import FAQ from "./components/FAQ";
 export const AppContext = createContext()
 
 const EatAndBite = () => {
-  const [latitude, setLatitude] = useState(26.8310467);
-  const [longitude, setLongitude] = useState(80.9243877);
+  // const [latitude, setLatitude] = useState(26.8310467);
+  // const [longitude, setLongitude] = useState(80.9243877);
+  // value={{ latitude, setLatitude, longitude, setLongitude }}
+  const [location, setLocation] = useState("Lucknow");
 
   return (
     <Provider store={appStore} >
-      <AppContext.Provider value={{ latitude, setLatitude, longitude, setLongitude }} >
+      <AppContext.Provider value={{ location, setLocation }}>
         <Header />
         <Outlet />
         <Foooter />

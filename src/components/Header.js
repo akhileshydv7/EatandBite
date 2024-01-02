@@ -13,20 +13,17 @@ const Header = () => {
     // const onlineStatus = useOnlineStatus();
     const cartItems = useSelector((store) => store.cart.items);
     // console.log(cartItems);
-    const { setLongitude, setLatitude } = useContext(AppContext)
+    const { setLocation } = useContext(AppContext);
 
     const locationList = [
-        { label: "Lucknow", value: JSON.stringify({ latitude: 26.8310467, longitude: 80.9243877 }) },
-        { label: "Varanasi", value: JSON.stringify({ latitude: 25.3270644, longitude: 82.9862236 }) },
-        { label: "Hyderabad", value: JSON.stringify({ latitude: 17.497481, longitude: 78.531138 }) },
-        { label: "Mumbai", value: JSON.stringify({ latitude: 18.9690247, longitude: 72.8205292 }) },
-        { label: "Delhi", value: JSON.stringify({ latitude: 28.6428915, longitude: 77.2190894 }) },
+        { label: "Lucknow", value: "Lucknow" },
+        { label: "Varanasi", value: "Varanasi" },
+        { label: "Hyderabad", value: "Hyderabad" },
+        { label: "Mumbai", value: "Mumbai" },
+        { label: "Delhi", value: "Delhi" },
     ]
     const handleLocationChange = (e) => {
-        // console.log("eeeee", e.target.value);
-        const { latitude, longitude } = JSON.parse(e.target.value)
-        setLongitude(longitude)
-        setLatitude(latitude)
+        setLocation(e.target.value);
     }
 
     return (
@@ -38,10 +35,6 @@ const Header = () => {
                         <option key={e?.label} value={e.value} >{e.label}</option>
                     ))
                     }
-                    {/* <option>Delhi</option>
-                    <option>Hyderabad</option>
-                    <option>Mumbai</option>
-                    <option>Varanasi</option> */}
                 </select>
             </div>
             <ul className="flex m-8 font-normal text-base items-center">

@@ -21,21 +21,23 @@ const RestrauntMenu = () => {
     const fetchMenu = async () => {
         const data = await fetch(MENU_URL + resId);
         const json = await data.json();
-        // console.log(json);
-        setResInfo(json.data);
+        // console.log(json?.resturent);
+        setResInfo(json?.resturent);
     }
 
-    const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) =>
+    const categories = resInfo?.menuData.filter((c) =>
         c?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
 
 
+    // console.log(categories);
     // console.log(resInfo);
     if (resInfo === null)
         return <Shimmer />
 
-    const { name, cuisines, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
+    const { name, cuisines, costForTwo } = resInfo?.info;
+
 
     // console.log(categories);
     // console.log(itemCards);
@@ -43,7 +45,7 @@ const RestrauntMenu = () => {
         <div className="" >
             <div className="text-center ">
                 <h1 className="font-bold text-2xl my-6">{name}</h1>
-                <p className="font-bold text-lg mb-4" >{cuisines.join(",")} - {costForTwoMessage}</p>
+                <p className="font-bold text-lg mb-4" >{cuisines.join(",")} - {costForTwo}</p>
             </div>
             {categories.map((items, index) =>
                 <RestrauntCategories

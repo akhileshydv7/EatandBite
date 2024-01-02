@@ -6,41 +6,42 @@ import React from "react";
 import { AppContext } from "..";
 // import useOnlineStatus from "../utils/useOnlineStatus";
 // import UserContext from "../utils/UserContext";
-// import { Button } from '@mui/material';
 
 const Body = () => {
     const [listOfRestraunts, setListOfRestraunts] = useState([]);
     const [filteredRestraunts, setFilteredRestraunts] = useState([]);
     const [searchText, setSearchText] = useState("");
-
-    const { longitude, latitude } = useContext(AppContext)
-    // const { loggedInUser, setUserName } = useContext(UserContext);
+    const { location } = useContext(AppContext);
     const [ratedFilter, setRatedFilter] = useState(true);
+    // const { loggedInUser, setUserName } = useContext(UserContext);
 
     useEffect(() => {
         const fetchData = async () => {
-            // const data = await fetch("https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.0826802&lng=80.2707184&page_type=DESKTOP_WEB_LISTING");
-            const data = await fetch(`https://corsproxy.io/?https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`);
+            const data = await fetch(`https://bloombasket.onrender.com/api/v1/all/resturent/${location}`);
             const json = await data.json();
-            console.log(json);
+            // console.log(json);
             // optional chaining
-            setListOfRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-            setFilteredRestraunts(json?.data?.cards?.[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+            setListOfRestraunts(json?.allResturent);
+            setFilteredRestraunts(json?.allResturent);
         }
         fetchData();
-    }, [longitude, latitude])
+    }, [location]);
+
+    // [longitude, latitude]
 
 
     const RestrauntCardHeading = withPromptedLabel(RestruantCard);
 
     // conditional rendering
-
-
     // const onlineStatus = useOnlineStatus();
     // if (onlineStatus === false) {
     //     return (<h1>You are offline</h1>)
     // }
     // console.log(listOfRestraunts)
+    // return (
+    //     <div>
+    //         okokok
+    //     </div>)
 
     return listOfRestraunts?.length === 0 ? <Shimmer /> : (
         <div className="">
@@ -56,15 +57,12 @@ const Body = () => {
                             res.info.name.toLowerCase().includes(searchText.toLowerCase())
                         )
                         setFilteredRestraunts(filteredRes);
-                        // setFilteredRestraunts(listOfRestraunts);
                     }} >Search</button>
                 </div>
                 <button className={!ratedFilter ? "border border-black rounded-2xl w-[10%] bg-gray-300" : "border rounded-2xl w-[10%] hover:bg-blue-50"}
                     onClick={() => {
                         setRatedFilter(!ratedFilter);
                         if (ratedFilter === true) {
-                            // console.log("dhda");
-
                             setFilteredRestraunts(filteredRestraunts.filter(
                                 (res) => (res.info.avgRating > 4)
                             ));
@@ -83,9 +81,7 @@ const Body = () => {
             </div>
             <div className="flex flex-wrap gap-8 ml-10 mb-3 ">
                 {filteredRestraunts?.map((res) =>
-                // (<LinkContainer key={res.data.id} to={/restraunt/ + res.data.id}><RestruantCard  resData={res} /></LinkContainer>)
-                // (<RestruantCard  resData={res} />)
-                (<Link key={res.info.id} to={"/restraunt/" + res.info.id} className="w-[22%]">
+                (<Link key={res.info.id} to={"/restraunt/" + res._id} className="w-[22%]">
                     {
                         res?.info?.aggregatedDiscountInfoV3?.header != null ? <RestrauntCardHeading resData={res} /> : <RestruantCard resData={res} />
                     }
@@ -100,6 +96,3 @@ const Body = () => {
 export default Body;
 
 
-
-// https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.498767&lng=78.53034&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
-// https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9801436&lng=77.5685724&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
