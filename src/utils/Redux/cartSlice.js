@@ -7,12 +7,14 @@ const cartSlice = createSlice({
     },
     reducers: {
         addItem: (state, action) => {
+            localStorage.setItem('dataKey', JSON.stringify(action.payload))
             state.items.push(action.payload);
         },
         removeItem: (state) => {
             state.items.pop();
         },
         clearCart: (state) => {
+            localStorage.removeItem("dataKey")
             state.items.length = 0;
         },
     },

@@ -1,4 +1,5 @@
 import { clearCart } from "../utils/Redux/cartSlice";
+import CartItems from "./CartItems";
 import ItemList from "./ItemList";
 import { useDispatch, useSelector } from "react-redux"
 
@@ -10,8 +11,11 @@ const Cart = () => {
         dispatch(clearCart());
     }
 
+
+
     return (
         <div className="text-center m-8 min-h-screen">
+            <CartItems cartItems={cartItems} />
             <h1 className="font-bold text-4xl mb-2">Cart</h1>
             <div className="w-7/12 m-auto">
                 <ItemList items={cartItems} />
