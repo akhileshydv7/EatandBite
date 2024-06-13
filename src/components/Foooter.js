@@ -24,7 +24,7 @@ const Foooter = () => {
             <div
                 className="flex flex-col items-center justify-center pt-7 text-white ">
                 <small>Designed & built by akhileshyadav26</small>
-                <small>© 2023 Swiggy_Clone. All rights reserved</small>
+                <small>© 2024 Eat&Bite. All rights reserved.</small>
             </div>
         </div>
     )

@@ -8,11 +8,7 @@ import { AppContext } from "..";
 
 
 const Header = () => {
-    // const [btnName, setbtnName] = useState("Login");
-    // const { loggedInUser } = useContext(UserContext);
-    // const onlineStatus = useOnlineStatus();
     const cartItems = useSelector((store) => store.cart.items);
-    // console.log(cartItems);
     const { setLocation } = useContext(AppContext);
 
     const locationList = [
@@ -29,7 +25,7 @@ const Header = () => {
     return (
         <div className="flex justify-between shadow-xl h-20 sticky top-0 bg-white bg-opacity-75 z-10 backdrop-blur ">
             <div className="ml-4 w-240 flex flex-row">
-                <Link className="cursor-pointer w-20 animate-pulse" to="/" ><img src={logo} alt="uuu" /></Link>
+                <Link className="cursor-pointer w-20" to="/" ><img src={logo} alt="uuu" /></Link>
                 <select onChange={handleLocationChange} className="ml-12 mt-7 border-none h-6 text-base cursor-pointer w-fit items-center outline-none bg-inherit">
                     {locationList?.map(e => (
                         <option key={e?.label} value={e.value} >{e.label}</option>

@@ -8,8 +8,8 @@ import RestrauntCategories from "./RestrauntCategories";
 
 
 const RestrauntMenu = () => {
-    const [resInfo, setResInfo] = useState(null);
 
+    const [resInfo, setResInfo] = useState(null);
     const { resId } = useParams();
     const [showIndex, setShowIndex] = useState(null);
 
@@ -17,6 +17,10 @@ const RestrauntMenu = () => {
         fetchMenu();
     });
 
+
+    // useEffect(() => {
+    //     localStorage.setItem('dataKey', JSON.stringify(resInfo));
+    // }, [resInfo]);
 
     const fetchMenu = async () => {
         const data = await fetch(MENU_URL + resId);
@@ -32,7 +36,7 @@ const RestrauntMenu = () => {
 
 
     // console.log(categories);
-    console.log(resInfo);
+    // console.log(resInfo);
     if (resInfo === null)
         return <Shimmer />
 

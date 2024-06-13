@@ -37,11 +37,6 @@ const Body = () => {
     // if (onlineStatus === false) {
     //     return (<h1>You are offline</h1>)
     // }
-    // console.log(listOfRestraunts)
-    // return (
-    //     <div>
-    //         okokok
-    //     </div>)
 
     return listOfRestraunts?.length === 0 ? <Shimmer /> : (
         <div className="">

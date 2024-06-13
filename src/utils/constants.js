@@ -2,7 +2,7 @@ export const LOGO_URL =
     "https://drive.google.com/file/d/1ETl8nPeupO-0wzJRVxfEyaDWJDIKmnJh/view?usp=drive_link";
 
 export const CLD_URL =
-    "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
+    "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 
 export const MENU_URL =
     "https://bloombasket.onrender.com/api/v1/resturent/";
